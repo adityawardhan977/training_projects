@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #2b7a78;
+        }
+
+        form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 12px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input {
+            padding: 8px;
+            width: 220px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        input[type="submit"] {
+            background-color: #3aafa9;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            width: 100%;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2b7a78;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #17252a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crop Prediction Based on Soil & Weather</h1>
+    <form method="POST" action="/predict">
+        <div class="form-group">
+            <label>Nitrogen (N):</label>
+            <input type="number" name="N" required>
+        </div>
+
+        <div class="form-group">
+            <label>Phosphorus (P):</label>
+            <input type="number" name="P" required>
+        </div>
+
+        <div class="form-group">
+            <label>Potassium (K):</label>
+            <input type="number" name="K" required>
+        </div>
+
+        <div class="form-group">
+            <label>Temperature (°C):</label>
+            <input type="number" name="temperature" step="any" required>
+        </div>
+
+        <div class="form-group">
+            <label>Humidity (%):</label>
+            <input type="number" name="humidity" step="any" required>
+        </div>
+
+        <div class="form-group">
+            <label>pH Level:</label>
+            <input type="number" name="ph" step="any" required>
+        </div>
+
+        <div class="form-group">
+            <label>Rainfall (mm):</label>
+            <input type="number" name="rainfall" step="any" required>
+        </div>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>
